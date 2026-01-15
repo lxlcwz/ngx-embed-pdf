@@ -3,19 +3,19 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve app",
-    "build:app": "ng build app --configuration production",
-    "watch:app": "ng build app --watch --configuration development",
-    "test:app": "ng test app",
+    "start": "ng serve demo",
+    "build:demo": "ng build demo --configuration production",
+    "watch:demo": "ng build demo --watch --configuration development",
+    "test:demo": "ng test demo",
     "build:lib:ngx-embed-pdf": "ng build ngx-embed-pdf --configuration production",
     "watch:lib:ngx-embed-pdf": "ng build ngx-embed-pdf --watch --configuration development",
     "test:lib:ngx-embed-pdf": "ng test ngx-embed-pdf",
-    "build": "pnpm build:lib:ngx-embed-pdf && pnpm build:app",
-    "watch": "npm-run-all --parallel watch:lib:ngx-embed-pdf watch:app",
-    "test": "pnpm test:lib:ngx-embed-pdf && pnpm test:app",
+    "build": "pnpm build:lib:ngx-embed-pdf && pnpm build:demo",
+    "watch": "npm-run-all --parallel watch:lib:ngx-embed-pdf watch:demo",
+    "test": "pnpm test:lib:ngx-embed-pdf && pnpm test:demo",
     "prepare": "husky",
     "commitlint": "commitlint --edit",
-    "serve:ssr:app": "node dist/app/server/server.mjs"
+    "serve:ssr:demo": "node dist/demo/server/server.mjs"
   },
   "prettier": {
     "printWidth": 100,
