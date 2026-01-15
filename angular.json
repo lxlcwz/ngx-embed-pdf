@@ -79,6 +79,32 @@
           "builder": "@angular/build:unit-test"
         }
       }
+    },
+    "ngx-embed-pdf": {
+      "projectType": "library",
+      "root": "libs/ngx-embed-pdf",
+      "sourceRoot": "libs/ngx-embed-pdf/src",
+      "prefix": "nep",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ngx-embed-pdf/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/ngx-embed-pdf/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "libs/ngx-embed-pdf/tsconfig.spec.json"
+          }
+        }
+      }
     }
   }
 }
