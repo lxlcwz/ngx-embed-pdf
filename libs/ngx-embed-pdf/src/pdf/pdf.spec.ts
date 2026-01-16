@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgxEmbedPdf } from './ngx-embed-pdf';
+import { Pdf } from './pdf';
 
-describe('NgxEmbedPdf', () => {
-  let component: NgxEmbedPdf;
-  let fixture: ComponentFixture<NgxEmbedPdf>;
+describe('Pdf', () => {
+  let component: Pdf;
+  let fixture: ComponentFixture<Pdf>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NgxEmbedPdf]
+      imports: [Pdf],
     })
-    .compileComponents();
+      .compileComponents();
 
-    fixture = TestBed.createComponent(NgxEmbedPdf);
+    fixture = TestBed.createComponent(Pdf);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

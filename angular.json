@@ -28,6 +28,11 @@
               {
                 "glob": "**/*",
                 "input": "demo/public"
+              },
+              {
+                "glob": "**/*",
+                "input": "demo/assets",
+                "output": "assets"
               }
             ],
             "styles": [
@@ -82,6 +87,11 @@
     },
     "ngx-embed-pdf": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "libs/ngx-embed-pdf",
       "sourceRoot": "libs/ngx-embed-pdf/src",
       "prefix": "nep",
