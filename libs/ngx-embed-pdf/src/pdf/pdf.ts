@@ -7,12 +7,13 @@ import {
   PLATFORM_ID,
   viewChild,
 } from '@angular/core';
+import EmbedPDF from '@embedpdf/snippet';
 
 @Component({
   selector: 'nep-pdf',
   imports: [],
   template: `
-    <div #embedPdfContainer></div>
+    <div class="embed-pdf-container" #embedPdfContainer></div>
   `,
   styleUrl: './pdf.scss',
 })
@@ -23,8 +24,7 @@ export class Pdf implements AfterViewInit {
 
   async ngAfterViewInit(): Promise<void> {
     if (isPlatformBrowser(this.platformId)) {
-      const EmbedPDF = await import('@embedpdf/snippet');
-      EmbedPDF.default.init({
+      EmbedPDF.init({
         type: 'container',
         target: this.embedPdfContainer().nativeElement,
         src: 'https://snippet.embedpdf.com/ebook.pdf',
