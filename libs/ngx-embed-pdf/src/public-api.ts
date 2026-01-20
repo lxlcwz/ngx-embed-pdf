@@ -3,3 +3,5 @@
  */
 
 export * from './pdf/pdf';
+
+export * from './pdf/nep-pdf.type';
