@@ -4,7 +4,9 @@
   "cli": {
     "packageManager": "pnpm",
     "analytics": false,
-    "schematicCollections": ["angular-eslint"]
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -83,6 +85,16 @@
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "demo/**/*.ts",
+              "demo/**/*.html"
+            ],
+            "eslintConfig": "demo/eslint.config.js"
+          }
         }
       }
     },
