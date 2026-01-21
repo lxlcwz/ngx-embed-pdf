@@ -3,7 +3,8 @@
   "version": 1,
   "cli": {
     "packageManager": "pnpm",
-    "analytics": false
+    "analytics": false,
+    "schematicCollections": ["angular-eslint"]
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -112,6 +113,16 @@
           "builder": "@angular/build:unit-test",
           "options": {
             "tsConfig": "libs/ngx-embed-pdf/tsconfig.spec.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ngx-embed-pdf/**/*.ts",
+              "libs/ngx-embed-pdf/**/*.html"
+            ],
+            "eslintConfig": "libs/ngx-embed-pdf/eslint.config.js"
           }
         }
       }
