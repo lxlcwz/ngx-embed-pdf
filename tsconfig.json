@@ -10,6 +10,9 @@
     "paths": {
       "ngx-embed-pdf": [
         "./dist/ngx-embed-pdf"
+      ],
+      "@lxlcwz/ngx-embed-pdf": [
+        "./libs/ngx-embed-pdf/src/public-api.ts"
       ]
     },
     "noFallthroughCasesInSwitch": true,
@@ -39,6 +42,12 @@
     },
     {
       "path": "./libs/ngx-embed-pdf/tsconfig.spec.json"
+    },
+    {
+      "path": "./demo/tsconfig.app.json"
+    },
+    {
+      "path": "./demo/tsconfig.spec.json"
     }
   ]
 }

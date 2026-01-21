@@ -3,40 +3,48 @@
   "version": 1,
   "cli": {
     "packageManager": "pnpm",
-    "analytics": false
+    "analytics": false,
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   },
   "newProjectRoot": "projects",
   "projects": {
-    "app": {
+    "demo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "app",
-      "sourceRoot": "app/src",
-      "prefix": "app",
+      "root": "demo",
+      "sourceRoot": "demo/src",
+      "prefix": "demo",
       "architect": {
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "browser": "app/src/main.ts",
-            "tsConfig": "app/tsconfig.app.json",
+            "browser": "demo/src/main.ts",
+            "tsConfig": "demo/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "app/public"
+                "input": "demo/public"
+              },
+              {
+                "glob": "**/*",
+                "input": "demo/assets",
+                "output": "assets"
               }
             ],
             "styles": [
-              "app/src/styles.scss"
+              "demo/src/styles.scss"
             ],
-            "server": "app/src/main.server.ts",
+            "server": "demo/src/main.server.ts",
             "outputMode": "server",
             "ssr": {
-              "entry": "app/src/server.ts"
+              "entry": "demo/src/server.ts"
             }
           },
           "configurations": {
@@ -67,21 +75,36 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "app:build:production"
+              "buildTarget": "demo:build:production"
             },
             "development": {
-              "buildTarget": "app:build:development"
+              "buildTarget": "demo:build:development"
             }
           },
           "defaultConfiguration": "development"
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "demo/**/*.ts",
+              "demo/**/*.html"
+            ],
+            "eslintConfig": "demo/eslint.config.js"
+          }
         }
       }
     },
     "ngx-embed-pdf": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "libs/ngx-embed-pdf",
       "sourceRoot": "libs/ngx-embed-pdf/src",
       "prefix": "nep",
@@ -102,6 +125,16 @@
           "builder": "@angular/build:unit-test",
           "options": {
             "tsConfig": "libs/ngx-embed-pdf/tsconfig.spec.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ngx-embed-pdf/**/*.ts",
+              "libs/ngx-embed-pdf/**/*.html"
+            ],
+            "eslintConfig": "libs/ngx-embed-pdf/eslint.config.js"
           }
         }
       }
